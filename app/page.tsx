@@ -1,4 +1,3 @@
-import { AuthButton } from "@/components/auth-button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import Link from "next/link";
 
@@ -11,7 +10,14 @@ export default function Home() {
             <div className="flex gap-5 items-center font-semibold">
               <Link href={"/"}>VIE UNAL</Link>
             </div>
-            <AuthButton />
+            <div className="flex gap-2">
+              <Link 
+                href="/auth/login"
+                className="border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 rounded-md font-medium text-sm transition-colors"
+              >
+                Iniciar Sesión
+              </Link>
+            </div>
           </div>
         </nav>
         
