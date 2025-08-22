@@ -41,8 +41,8 @@ export default function PdfExtractorPage() {
       }
       const data = await res.json();
       setItems(Array.isArray(data?.items) ? data.items : []);
-    } catch (e: any) {
-      setErrorMsg(e?.message ?? "Error inesperado");
+    } catch (e: unknown) {
+      setErrorMsg((e as Error)?.message ?? "Error inesperado");
     } finally {
       setLoading(false);
     }

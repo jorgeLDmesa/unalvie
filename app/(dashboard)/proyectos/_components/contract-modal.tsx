@@ -43,10 +43,10 @@ import { Target } from "lucide-react" // Import Target component
 interface ContratoModalProps {
   open: boolean
   onOpenChange: (open: boolean) => void
-  proyecto: any
+  proyecto?: unknown
 }
 
-export function ContratoModal({ open, onOpenChange, proyecto }: ContratoModalProps) {
+export function ContratoModal({ open, onOpenChange }: ContratoModalProps) {
   const [activeTab, setActiveTab] = useState("resumen")
   const [hasChanges, setHasChanges] = useState(false)
   const [contratoData, setContratoData] = useState({
@@ -74,7 +74,7 @@ export function ContratoModal({ open, onOpenChange, proyecto }: ContratoModalPro
     valorEfectivoOtras: 0,
   })
 
-  const [entidades, setEntidades] = useState([
+  const [entidades] = useState([
     {
       id: 1,
       entidad: "Universidad Nacional de Colombia",
@@ -95,7 +95,7 @@ export function ContratoModal({ open, onOpenChange, proyecto }: ContratoModalPro
     },
   ])
 
-  const [productos, setProductos] = useState([
+  const [productos] = useState([
     {
       id: 1,
       descripcion: "Prototipo funcional del sistema de IA",
@@ -110,7 +110,7 @@ export function ContratoModal({ open, onOpenChange, proyecto }: ContratoModalPro
     },
   ])
 
-  const [documentos, setDocumentos] = useState([
+  const [documentos] = useState([
     {
       id: 1,
       nombre: "Contrato_Principal_CC-2025-1234.pdf",
@@ -129,7 +129,7 @@ export function ContratoModal({ open, onOpenChange, proyecto }: ContratoModalPro
     },
   ])
 
-  const [historial, setHistorial] = useState([
+  const [historial] = useState([
     {
       id: 1,
       fecha: new Date("2024-01-15"),

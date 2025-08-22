@@ -16,9 +16,6 @@ import {
   CheckCircle, 
   XCircle, 
   Calendar, 
-  Mail, 
-  Users, 
-  FileText, 
   Download,
   Search,
   Filter

@@ -77,10 +77,10 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ items: data });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(err);
     return NextResponse.json(
-      { error: "Error procesando el PDF", detail: String(err?.message ?? err) },
+      { error: "Error procesando el PDF", detail: String((err as Error)?.message ?? err) },
       { status: 500 }
     );
   }
