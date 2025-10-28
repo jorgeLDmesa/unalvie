@@ -10,12 +10,24 @@ import { Loader2, CheckCircle2, XCircle, Clock } from 'lucide-react';
 
 type JobStatus = 'QUEUED' | 'EXECUTING' | 'COMPLETED' | 'FAILED';
 
+type ScrapeResult = {
+  searchTerm: string;
+  title: string;
+  url: string;
+  timestamp: string;
+  results?: Array<{
+    text: string;
+    href?: string;
+  }>;
+  screenshotBase64?: string;
+};
+
 export default function ScrappingPage() {
   const [searchTerm, setSearchTerm] = useState('geografia');
   const [isLoading, setIsLoading] = useState(false);
   const [jobId, setJobId] = useState<string | null>(null);
   const [jobStatus, setJobStatus] = useState<JobStatus | null>(null);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<ScrapeResult | null>(null);
 
   // Poll for job status
   useEffect(() => {
@@ -165,7 +177,7 @@ export default function ScrappingPage() {
                 <div className="p-4 bg-muted rounded-lg">
                   <h4 className="font-semibold mb-2">Resultados encontrados ({result.results.length}):</h4>
                   <ul className="space-y-2 text-sm">
-                    {result.results.map((item: any, index: number) => (
+                    {result.results.map((item, index) => (
                       <li key={index} className="border-l-2 border-primary pl-3">
                         {item.text}
                         {item.href && (
