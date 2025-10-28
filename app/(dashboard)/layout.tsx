@@ -1,4 +1,5 @@
 import { DashboardNavigationMenu } from "@/components/fluid-menu"
+import AIChatSidebar from "@/components/chat"
 
 export default function DashboardLayout({
   children,
@@ -9,6 +10,7 @@ export default function DashboardLayout({
     <main className="min-h-screen">
       {children}
       <DashboardNavigationMenu />
+      <AIChatSidebar />
     </main>
   )
 }
